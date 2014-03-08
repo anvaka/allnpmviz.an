@@ -4,6 +4,7 @@
   "description": "Visualization of entier npm",
   "main": "index.js",
   "scripts": {
+    "start": "beefy index.js:bundle.js 9005",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,5 +16,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/anvaka/allnpmviz.an"
+  },
+  "devDependencies": {
+    "beefy": "^1.1.0",
+    "an": "0.0.2"
+  },
+  "dependencies": {
+    "ngraph.events": "0.0.2"
   }
 }

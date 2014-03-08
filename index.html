@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>NPM Universe</title>
+    <link rel="stylesheet" href="external/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="external/styles/styles.css">
+  </head>
+  <body ng-controller='AppController'>
+    <div class='graphView'></div>
+    <div class='ng-cloak' ng-show='initialized'>
+      <form class="search" role="search" ng-submit='highlightPackages()'>
+        <div class="input-group typeahead-container">
+          <span class="input-group-addon">highlight</span>
+          <input  type="text" autofocus
+                  ng-model='search' name='search'
+                  class="form-control no-shadow" placeholder="package name">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button">Go!</button>
+          </span>
+        </div>
+      </form>
+      <div class='ng-cloak packageInfo container box'>
+        <h4>{{name}}</h4>
+        <div class="row">
+          <div class="col-md-4">Dependencies</div>
+          <div class="col-md-6">{{stats.dependencies}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">Dependents</div>
+          <div class="col-md-6">{{stats.dependents}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">Author</div>
+          <div class="col-md-6">{{author}}</div>
+        </div>
+      </div>
+      <div class='ng-cloak searchBox container box' ng-show='searchResults'>
+        <h4>Search results <small>{{totalFound}}</small></h4>
+        <div class='searchResults' when-scrolled="loadMore()">
+          <div ng-repeat='search in searchResults'>
+            {{search}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='initializing' ng-hide='initialized'>
+      <h1>Downloading graph...</h1>
+    </div>
+    <script src="external/angular.min.js" type="text/javascript" charset="utf-8">
+    </script>
+    <!-- yes, we still use old vivagraph. I'm still in progress of decoupling it -->
+    <script src="external/vivagraph.min.js" type="text/javascript" charset="utf-8">
+    </script>
+    <script src='bundle.js' type="text/javascript" charset="utf-8">
+    </script>
+  </body>
+</html>
