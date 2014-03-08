@@ -107,3 +107,8 @@ body {
 .ng-cloak { 
   display: none;
 }
+div.showTets {
+  position: absolute;
+  left: 30px;
+  bottom: 15px;
+}

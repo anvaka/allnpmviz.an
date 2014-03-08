@@ -35,13 +35,17 @@
           <div class="col-md-6">{{author}}</div>
         </div>
       </div>
-      <div class='ng-cloak searchBox container box' ng-show='searchResults'>
+      <div class='searchBox container box' ng-show='searchResults'>
         <h4>Search results <small>{{totalFound}}</small></h4>
         <div class='searchResults' when-scrolled="loadMore()">
           <div ng-repeat='search in searchResults'>
             {{search}}
           </div>
         </div>
+      </div>
+      <div class='showTets'>
+        <input type="checkbox" name="showTests" id="toggleTests" ng-model="showTests" ng-change="toggleTests()">
+        <label for="toggleTests">Highlight covered with tests</label>
       </div>
     </div>
     <div class='initializing' ng-hide='initialized'>
