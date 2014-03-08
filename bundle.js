@@ -19,7 +19,7 @@ module.exports = require('an').controller(
   var page = require('./scroll/page');
 
   var nodeIdxToNodeId = {};
-  $http.get('/data/npmgraph.json').then(function (res) {
+  $http.get('data/npmgraph.json').then(function (res) {
     res.data.forEach(function (node, idx) {
       nodeIdxToNodeId[idx] = node.id;
     });
@@ -32,7 +32,7 @@ module.exports = require('an').controller(
   var testData;
   $scope.toggleTests = function () {
     if (!testData) {
-      $http.get('/data/withtests.json').then(function (res) {
+      $http.get('data/withtests.json').then(function (res) {
         testData = transformToTestData(res.data);
         toggleTests($scope.showTests);
       });
