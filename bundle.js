@@ -1,4 +1,4 @@
-;(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 require('./lib/appController');
 
 var allnpm = angular.module('allnpm', []);
@@ -19,7 +19,7 @@ module.exports = require('an').controller(
   var page = require('./scroll/page');
 
   var nodeIdxToNodeId = {};
-  $http.get('data/npmgraph.json').then(function (res) {
+  $http.get('data/npmgraph.json?v=0.1').then(function (res) {
     res.data.forEach(function (node, idx) {
       nodeIdxToNodeId[idx] = node.id;
     });
@@ -32,7 +32,7 @@ module.exports = require('an').controller(
   var testData;
   $scope.toggleTests = function () {
     if (!testData) {
-      $http.get('data/withtests.json').then(function (res) {
+      $http.get('data/withtests.json?v=0.1').then(function (res) {
         testData = transformToTestData(res.data);
         toggleTests($scope.showTests);
       });
@@ -529,4 +529,3 @@ function validateSubject(subject) {
 }
 
 },{}]},{},[1])
-;
