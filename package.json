@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "beefy index.js:bundle.js 9005",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test/*.js"
   },
   "keywords": [
     "npm",
@@ -19,7 +19,8 @@
   },
   "devDependencies": {
     "beefy": "^1.1.0",
-    "an": "0.0.2"
+    "an": "0.0.2",
+    "tap": "^0.4.8"
   },
   "dependencies": {
     "ngraph.events": "0.0.2"
