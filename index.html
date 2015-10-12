@@ -30,10 +30,6 @@
           <div class="col-md-4">Dependents</div>
           <div class="col-md-6">{{stats.dependents}}</div>
         </div>
-        <div class="row">
-          <div class="col-md-4">Author</div>
-          <div class="col-md-6">{{author}}</div>
-        </div>
       </div>
       <div class='searchBox container box' ng-show='searchResults'>
         <h4>Search results <small>{{totalFound}}</small></h4>
@@ -42,10 +38,6 @@
             {{search}}
           </div>
         </div>
-      </div>
-      <div class='showTets'>
-        <input type="checkbox" name="showTests" id="toggleTests" ng-model="showTests" ng-change="toggleTests()">
-        <label for="toggleTests">Highlight covered with tests</label>
       </div>
     </div>
     <div class='initializing' ng-hide='initialized'>
